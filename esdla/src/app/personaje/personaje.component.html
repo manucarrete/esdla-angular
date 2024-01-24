@@ -1,10 +1,17 @@
-<div *ngFor="let personaje of personajes">
-    <h3>{{personaje.nombre | uppercase}} Detalles:</h3>
-    <div><span>id: </span>{{personaje.id}}</div>
-    <div>
-        <label>Nombre:
-          <input [(ngModel)]="personaje.nombre" placeholder="Nombre"/>
-        </label>
-    </div>
-    <div><span>Nivel: </span>{{personaje.nivel}}</div>
+<div>
+    <ul>
+        <li *ngFor="let personaje of personajes" class="personajes">
+            <h3>{{personaje.nombre | uppercase}} Detalles:</h3>
+            <div><span>id: </span>{{personaje.id}}
+            <button (click)="onSelect(personaje)">Editar</button>
+            </div>
+            <div><span>Nombre: </span>{{personaje.nombre}}</div>
+            <div><span>Nivel: </span>{{personaje.nivel}}</div>
+        </li>
+    </ul>
+</div>
+<div *ngIf="personajeSel != undefined"> <!-- También valdría solo "personajeSel", ya que sería false -->
+    <label>Nombre:
+        <input [(ngModel)]="personajeSel.nombre" placeholder="Nombre"/>
+      </label>
 </div>

@@ -24,4 +24,11 @@ export class PersonajeComponent {
     nivel:100,
     nombre:''
   }]  
+
+  personajeSel!: Personaje;
+
+  onSelect(personaje: Personaje): void {
+    this.personajeSel = personaje;
+    
+  }
 }
